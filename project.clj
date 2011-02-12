@@ -1,4 +1,4 @@
-(defproject sql-migrate "1.0.0"
+(defproject sql-migrate "1.0.1-SNAPSHOT"
   :description "simple database migration tool"
   :dependencies [[org.clojure/clojure "1.2.0"]
                  [org.clojure/clojure-contrib "1.2.0"]
