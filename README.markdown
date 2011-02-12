@@ -8,7 +8,7 @@ scripts are saved in a table called migrations.
 
 ## Usage
 
-To install with leiningen, add following dependency to your project.clj:
+To install with leiningen, add following dependency to project.clj:
 
 	[sql-migrate <version>]
 
@@ -31,10 +31,7 @@ Describe your migrations in an sql file:
 
 Execute the migrations:
 
-	(def db {:classname "org.hsqldb.jdbcDriver" :subprotocol "h2"
-	         :subname "mem:test" :user "sa" :password ""})
-
-	(sql-migrate.core/migrate db "migrations.sql")
+	(sql-migrate.core/migrate! db-spec "migrations.sql")
 
 ## License
 
