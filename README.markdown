@@ -31,7 +31,10 @@ Describe your migrations in an sql file:
 
 Execute the migrations:
 
-	(sql-migrate.core/migrate "migrations.sql")
+	(def db {:classname "org.hsqldb.jdbcDriver" :subprotocol "h2"
+	         :subname "mem:test" :user "sa" :password ""})
+
+	(sql-migrate.core/migrate db "migrations.sql")
 
 ## License
 
