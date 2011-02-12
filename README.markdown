@@ -8,7 +8,11 @@ scripts are saved in a table called migrations.
 
 ## Usage
 
-First, create a migrations table:
+To install with leiningen, add following dependency to your project.clj:
+
+	[sql-migrate <version>]
+
+Create a migrations table:
 
 	CREATE TABLE migrations (name VARCHAR(255) NOT NULL PRIMARY KEY);
 
