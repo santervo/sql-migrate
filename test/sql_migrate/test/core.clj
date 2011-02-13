@@ -14,13 +14,13 @@
 (deftest test-migrate
   (testing "without migrations table"
     (is (thrown-with-msg? SQLException (re-pattern "Table \"MIGRATIONS\" not found")
-          (migrate! test-conn "test-resources/valid-migration.sql"))))
+          (migrate test-conn "test-resources/valid-migration.sql"))))
   (testing "without existing migrations"
     (with-connection test-conn
       ;setup
       (create-table :migrations [:name :varchar "PRIMARY KEY"])
       ;execute
-      (migrate! test-conn "test-resources/valid-migration.sql")
+      (migrate test-conn "test-resources/valid-migration.sql")
       ;verify
       (with-query-results rs ["select login,passwd from user"]
         (is (and (= "admin" (:login (first rs)))
@@ -35,7 +35,7 @@
       (create-table :migrations [:name :varchar "PRIMARY KEY"])
       (insert-records :migrations {:name "add initial user"})
       ;execute
-      (migrate! test-conn "test-resources/valid-migration.sql")
+      (migrate test-conn "test-resources/valid-migration.sql")
       ;verify
       (with-query-results rs ["select login,passwd from user"]
         (is (empty? rs) "existing migration was not executed"))

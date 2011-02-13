@@ -23,7 +23,7 @@
     (let [lines (line-seq reader)]
       (parse-migrations lines []))))
 
-(defn migrate!  
+(defn migrate
   "Executes migrations in migration-file. See clojure.contrib.sql/with-connection
   for description of db-spec."
   [db-spec migration-file]

@@ -31,7 +31,7 @@ Describe your migrations in an sql file:
 
 Execute the migrations:
 
-	(sql-migrate.core/migrate! db-spec "migrations.sql")
+	(sql-migrate.core/migrate db-spec "migrations.sql")
 
 ## License
 
